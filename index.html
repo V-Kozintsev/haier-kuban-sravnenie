@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Сравнение сайтов haier-kuban.ru и haier-yug.ru глазами покупателя">
+<title>haier-kuban.ru и haier-yug.ru</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Golos+Text:wght@400;500;600&display=swap">
+<style>
+/* Отчёт-сравнение: одна колонка ~1100px, пары скриншотов «мы / они» рядом, пометки прямо на скриншотах */
+:root {
+  --bg: #f3f6f9;
+  --surface: #ffffff;
+  --ink: #142231;
+  --muted: #586779;
+  --line: #d9e1ea;
+  --ours: #0b5cb3;
+  --ours-soft: #e3eefa;
+  --theirs: #6f7b88;
+  --good: #1d8655;
+  --good-soft: #e1f3ea;
+  --flag: #d2581f;
+  --flag-soft: #fbe9e0;
+  --even-soft: #eceff3;
+  --on-mark: #ffffff;
+  --vk: #0077ff;
+  --shade: rgba(10, 20, 32, .82);
+  --f-display: "Jost", "Futura", "Century Gothic", "Segoe UI", sans-serif;
+  --f-body: "Golos Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e141b; --surface: #151e29; --ink: #e5ecf4; --muted: #96a4b5; --line: #263445;
+    --ours: #5da3f5; --ours-soft: #16304d; --theirs: #9aa6b4;
+    --good: #3fbf82; --good-soft: #143326; --flag: #f08453; --flag-soft: #3a2118;
+    --even-soft: #222c38; --on-mark: #0e141b; --vk: #4b9dff; --shade: rgba(0, 0, 0, .86);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e141b; --surface: #151e29; --ink: #e5ecf4; --muted: #96a4b5; --line: #263445;
+  --ours: #5da3f5; --ours-soft: #16304d; --theirs: #9aa6b4;
+  --good: #3fbf82; --good-soft: #143326; --flag: #f08453; --flag-soft: #3a2118;
+  --even-soft: #222c38; --on-mark: #0e141b; --vk: #4b9dff; --shade: rgba(0, 0, 0, .86);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.55; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 40px 64px; display: grid; gap: 56px; }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 500; text-wrap: balance; margin: 0; letter-spacing: -.01em; }
+h1 { font-size: clamp(30px, 5vw, 46px); line-height: 1.08; }
+h2 { font-size: clamp(24px, 3.4vw, 32px); line-height: 1.15; }
+h3 { font-size: 19px; }
+p { margin: 0; }
+.eyebrow { font-family: var(--f-display); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--ours); font-weight: 500; }
+.lead { font-size: 18px; color: var(--muted); max-width: 66ch; }
+.num { font-variant-numeric: tabular-nums; }
+.nw { white-space: nowrap; }
+
+/* Шапка */
+header { display: grid; gap: 18px; }
+.tally { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
+.tally span { display: inline-flex; align-items: baseline; gap: 8px; padding: 8px 14px; border-radius: 999px; font-weight: 500; font-size: 15px; background: var(--good-soft); color: var(--good); }
+.tally b { font-family: var(--f-display); font-size: 22px; font-weight: 600; }
+.tally .plain { background: var(--even-soft); color: var(--muted); }
+
+/* Сводная таблица */
+.board { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+.board table { width: 100%; border-collapse: collapse; }
+.board th, .board td { text-align: left; vertical-align: top; padding: 14px 16px; border-top: 1px solid var(--line); font-size: 15px; }
+.board thead th { border-top: 0; font-family: var(--f-display); font-weight: 500; font-size: 14px; color: var(--muted); background: var(--bg); }
+.board thead th.c-ours { color: var(--ours); }
+.board td:first-child { font-weight: 600; width: 21%; }
+.board td.c-ours { width: 35%; }
+.board td.c-theirs { width: 31%; color: var(--muted); }
+.board tr.new td:first-child::after { content: "новое"; display: inline-block; margin-left: 8px; padding: 1px 7px; border-radius: 6px; font-size: 11px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; background: var(--ours-soft); color: var(--ours); vertical-align: 2px; }
+.chip { display: inline-block; white-space: nowrap; padding: 3px 10px; border-radius: 999px; font-size: 13px; font-weight: 500; background: var(--good-soft); color: var(--good); }
+@media (max-width: 720px) {
+  .board thead { display: none; }
+  .board table, .board tbody, .board tr, .board td { display: block; width: auto !important; }
+  .board tr { padding: 14px 16px; border-top: 1px solid var(--line); display: grid; gap: 6px; }
+  .board tbody tr:first-child { border-top: 0; }
+  .board td { padding: 0; border: 0; }
+  .board td[data-l]::before { content: attr(data-l); display: block; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+  .board td.c-ours[data-l]::before { color: var(--ours); }
+}
+
+/* Разделы со скриншотами */
+section { display: grid; gap: 22px; }
+.sec-head { display: grid; gap: 8px; }
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; }
+.pair.phones { max-width: 760px; }
+.pair.wide-left { grid-template-columns: 1.55fr 1fr; }
+@media (max-width: 760px) { .pair:not(.phones), .pair.wide-left { grid-template-columns: 1fr; } .pair.phones { gap: 12px; } }
+figure { margin: 0; display: grid; gap: 10px; min-width: 0; }
+.stack { display: grid; gap: 10px; }
+.who { display: inline-flex; align-items: center; gap: 8px; font-family: var(--f-display); font-weight: 500; font-size: 15px; }
+.who::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: currentColor; }
+.who.ours { color: var(--ours); }
+.who.theirs { color: var(--theirs); }
+.shot { position: relative; display: block; width: 100%; padding: 0; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--surface); cursor: zoom-in; }
+.shot:focus-visible { outline: 3px solid var(--ours); outline-offset: 3px; }
+.shot img { display: block; width: 100%; height: auto; }
+.mk { position: absolute; border: 2.5px solid var(--good); border-radius: 8px; pointer-events: none; }
+.mk.bad { border-color: var(--flag); }
+.mk b { position: absolute; left: -2px; top: -2px; background: var(--good); color: var(--on-mark); font-size: 12px; line-height: 1.3; font-weight: 600; padding: 3px 8px; border-radius: 6px 0 6px 0; max-width: calc(100% + 4px); }
+.mk.bad b { background: var(--flag); }
+.mk.below b { top: auto; bottom: -2px; border-radius: 0 6px 0 6px; }
+.mk.under b { top: calc(100% + 3px); left: -2px; border-radius: 6px; white-space: nowrap; max-width: none; }
+.mk.right b { left: calc(100% + 6px); top: 50%; transform: translateY(-50%); white-space: nowrap; border-radius: 6px; }
+.phones .mk b { font-size: 10.5px; padding: 2px 6px; }
+figcaption ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; font-size: 15px; }
+figcaption li::marker { color: var(--muted); }
+.phones figcaption ul { font-size: 14px; }
+.note { font-size: 14px; color: var(--muted); }
+
+/* Скорость и характеристики — полосы в масштабе */
+.bars { display: grid; gap: 12px; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 20px; }
+.bars h3 { font-size: 16px; color: var(--muted); font-weight: 500; margin-top: 4px; }
+.bar-row { display: grid; grid-template-columns: 130px 1fr; gap: 14px; align-items: center; }
+.bar-row span { font-weight: 500; font-size: 15px; }
+.bar { height: 30px; border-radius: 6px; display: flex; align-items: center; justify-content: flex-end; padding: 0 10px; font-family: var(--f-display); font-weight: 600; color: var(--on-mark); min-width: 44px; white-space: nowrap; }
+.bar.ours { background: var(--ours); }
+.bar.theirs { background: var(--theirs); }
+.bar-row.small .bar { height: 22px; font-size: 14px; }
+.scale { display: grid; grid-template-columns: 130px 1fr; gap: 14px; font-size: 12px; color: var(--muted); }
+.scale div { display: flex; justify-content: space-between; }
+@media (max-width: 520px) { .bar-row, .scale { grid-template-columns: 96px 1fr; } }
+.specs-scroll { max-height: 640px; overflow-y: auto; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+.specs-scroll img { display: block; width: 100%; height: auto; }
+.specs-yug { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: #fff; }
+.specs-yug img { display: block; width: 100%; }
+
+/* Фильтры */
+.filters-pair { display: grid; grid-template-columns: 260px 1fr; gap: 24px; align-items: start; }
+.filters-our { max-height: 560px; overflow-y: auto; border: 1px solid var(--line); border-radius: 12px; background: #fff; padding: 12px; }
+.filters-our img { display: block; width: 100%; }
+@media (max-width: 760px) { .filters-pair { grid-template-columns: 1fr; } .filters-our { max-width: 320px; } }
+
+/* Telegram */
+.tg-pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+.tg { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 18px; display: grid; gap: 12px; align-content: start; }
+.tg h3 { font-size: 16px; color: var(--muted); font-weight: 500; }
+.bubble { background: var(--ours-soft); border-radius: 14px 14px 14px 4px; padding: 12px 14px; font-size: 14.5px; line-height: 1.5; display: grid; gap: 2px; }
+.bubble .from { font-weight: 600; color: var(--ours); font-size: 13px; }
+.bubble .tel { color: var(--ours); }
+.btns { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.btns span { text-align: center; padding: 8px; border-radius: 8px; background: var(--even-soft); font-size: 13.5px; font-weight: 500; }
+.btns .wide { grid-column: 1 / -1; }
+.btns .taken { background: var(--good-soft); color: var(--good); }
+.mail { background: var(--even-soft); border-radius: 14px; padding: 14px; font-size: 14.5px; display: grid; gap: 4px; color: var(--muted); }
+.mail b { color: var(--ink); }
+
+/* ВКонтакте */
+.vk-none { background: var(--surface); border: 1px dashed var(--line); border-radius: 12px; padding: 22px; display: grid; gap: 8px; align-content: start; color: var(--muted); }
+.vk-none b { color: var(--ink); font-family: var(--f-display); font-weight: 500; font-size: 18px; }
+
+/* Что добавили */
+.done { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; margin: 0; padding: 0; list-style: none; }
+.done li { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px; display: grid; gap: 6px; align-content: start; }
+.done b { font-family: var(--f-display); font-weight: 500; font-size: 17px; }
+.done span { font-size: 14.5px; color: var(--muted); }
+footer { font-size: 14px; color: var(--muted); display: grid; gap: 6px; border-top: 1px solid var(--line); padding-top: 20px; max-width: 80ch; }
+
+/* Просмотр скриншота */
+dialog#lb { border: 0; padding: 0; background: transparent; max-width: 100vw; max-height: 100vh; width: 100vw; height: 100vh; }
+dialog#lb::backdrop { background: var(--shade); }
+dialog#lb .inner { width: 100%; height: 100%; overflow: auto; display: grid; place-items: start center; padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) 16px max(16px, env(safe-area-inset-left, 0px)); cursor: zoom-out; }
+dialog#lb img { max-width: min(1440px, 100%); height: auto; border-radius: 8px; }
+dialog#lb button { position: fixed; top: calc(12px + env(safe-area-inset-top, 0px)); right: calc(12px + env(safe-area-inset-right, 0px)); border: 0; border-radius: 999px; padding: 8px 16px; font: 500 15px var(--f-body); background: var(--surface); color: var(--ink); cursor: pointer; }
+@media (prefers-reduced-motion: no-preference) { .shot img { transition: transform .25s ease; } .shot:hover img { transform: scale(1.01); } }
+
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+
+/* Телефон: подписи рамок переносятся и не вылезают за скриншот; на маленьких скриншотах — только рамки */
+@media (max-width: 600px) {
+  .wrap { gap: 44px; padding-block: 24px 48px; }
+  .mk b { white-space: normal !important; max-width: 92% !important; font-size: 10.5px; padding: 2px 6px; }
+  .mk.right b { left: auto; right: -2px; top: calc(100% + 3px); transform: none; }
+  .phones .mk b, section[aria-labelledby="h-vk"] .mk b, .quiz-shot .mk { display: none; }
+  .tally span { font-size: 14px; }
+  figcaption ul { font-size: 14.5px; }
+  /* Скриншот крупно: шире экрана, листается пальцем во все стороны */
+  dialog#lb .inner { display: block; padding-top: calc(56px + env(safe-area-inset-top, 0px)); }
+  dialog#lb img { max-width: none; }
+  dialog#lb .lb-hint { display: block; }
+}
+.lb-hint { display: none; position: fixed; left: 50%; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); background: var(--surface); color: var(--ink); font: 500 13px var(--f-body); padding: 7px 14px; border-radius: 999px; white-space: nowrap; pointer-events: none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="eyebrow">Сравнение сайтов · 16 ноября 2026, обновлено вечером</span>
+  <h1>Наш сайт <span class="nw">haier-kuban.ru</span> и <span class="nw">haier-yug.ru</span> глазами покупателя</h1>
+  <p class="lead">Прошли оба сайта как обычный покупатель: главная, скорость, каталог, карточка товара, характеристики, подбор техники, заявка и соцсети. Чтобы сравнение было честным, на обоих сайтах смотрели одну и ту же модель — стиральную машину Haier X7 HW90‑B14367U1.</p>
+  <div class="tally num">
+    <span><b>13 из 13</b> пунктов — мы впереди</span>
+    <span class="plain">Ассортимент не сравниваем: каталог наполняется</span>
+  </div>
+</header>
+
+<section aria-labelledby="h-board">
+  <h2 id="h-board">Коротко</h2>
+  <div class="board">
+    <table>
+      <thead><tr><th>Что сравниваем</th><th class="c-ours">Наш сайт</th><th>haier-yug.ru</th><th>Итог</th></tr></thead>
+      <tbody>
+        <tr><td>Первый экран главной</td><td class="c-ours" data-l="Наш сайт">Видео Haier на всю ширину, с надписью и кнопкой</td><td class="c-theirs" data-l="haier-yug.ru">Картинка-баннер</td><td><span class="chip">Мы лучше</span></td></tr>
+        <tr class="new"><td>Скорость</td><td class="c-ours num" data-l="Наш сайт">Главное на экране через 0,9–1,0 с</td><td class="c-theirs num" data-l="haier-yug.ru">Через 1,3–2,0 с</td><td><span class="chip">Мы быстрее</span></td></tr>
+        <tr><td>Низ экрана</td><td class="c-ours" data-l="Наш сайт">Свободен. На телефоне — меню: Главная, Каталог, Избранное, Корзина, Позвонить</td><td class="c-theirs" data-l="haier-yug.ru">Всегда висит полоса «Дизайн интерьера». На телефоне вместе с кнопками это около 15% экрана</td><td><span class="chip">Мы лучше</span></td></tr>
+        <tr><td>Каталог, первый экран</td><td class="c-ours" data-l="Наш сайт">Фильтры слева видны сразу, 4 модели с ценами и кнопками</td><td class="c-theirs" data-l="haier-yug.ru">Фильтр открывается отдельной кнопкой. На первом экране только фото, цен не видно</td><td><span class="chip">Мы лучше</span></td></tr>
+        <tr class="new"><td>Фильтры холодильников</td><td class="c-ours" data-l="Наш сайт">Цена и 7 фильтров галочками: наличие, скидка, тип, высота, объём, класс энергоэффективности, тип компрессора. Рядом видно, сколько моделей подойдёт</td><td class="c-theirs" data-l="haier-yug.ru">За отдельной кнопкой: цена, «со снижением», 3 выпадающих списка (компрессор, энергоэффективность, габариты) и поле для ввода</td><td><span class="chip">Мы лучше</span></td></tr>
+        <tr><td>Наличие</td><td class="c-ours" data-l="Наш сайт">«В наличии» на карточке и фильтр «Только в наличии»</td><td class="c-theirs" data-l="haier-yug.ru">«Наличие и срок получения уточните у менеджера»</td><td><span class="chip">Мы лучше</span></td></tr>
+        <tr class="new"><td>Цена и выгода</td><td class="c-ours num" data-l="Наш сайт">Цена та же, но выгода видна сразу: −31% и «Выгода 30 499 ₽»</td><td class="c-theirs num" data-l="haier-yug.ru">Та же цена и зачёркнутая старая, без суммы выгоды</td><td><span class="chip">Мы лучше</span></td></tr>
+        <tr><td>Товар на телефоне</td><td class="c-ours" data-l="Наш сайт">Цена и «В корзину» на первом экране</td><td class="c-theirs" data-l="haier-yug.ru">Цену видно только после прокрутки</td><td><span class="chip">Мы лучше</span></td></tr>
+        <tr><td>Характеристики стиральной машины X7</td><td class="c-ours num" data-l="Наш сайт">72 параметра в 8 разделах</td><td class="c-theirs num" data-l="haier-yug.ru">4 строки</td><td><span class="chip">Мы лучше</span></td></tr>
+        <tr class="new"><td>Помощь с выбором</td><td class="c-ours" data-l="Наш сайт">Видно, сколько моделей в каждом бюджете, уточняющий вопрос, сразу 3 модели с ценами</td><td class="c-theirs" data-l="haier-yug.ru">Категория и бюджет, затем переход в каталог</td><td><span class="chip">Мы лучше</span></td></tr>
+        <tr><td>Быстрая покупка</td><td class="c-ours" data-l="Наш сайт">«Купить в 1 клик»: имя, телефон, магазин</td><td class="c-theirs" data-l="haier-yug.ru">Общая форма: магазин, имя, телефон, адрес, комментарий</td><td><span class="chip">Мы лучше</span></td></tr>
+        <tr><td>Что происходит с заявкой</td><td class="c-ours" data-l="Наш сайт">Сразу приходит в Telegram-группу с кнопкой «Взять в работу» и сохраняется в админке</td><td class="c-theirs" data-l="haier-yug.ru">Приходит на электронную почту</td><td><span class="chip">Мы лучше</span></td></tr>
+        <tr class="new"><td>ВКонтакте</td><td class="c-ours" data-l="Наш сайт">Своё сообщество: адреса и телефоны обоих магазинов, новинки, акции, видеообзоры. На сайте кнопка «Мы ВКонтакте»</td><td class="c-theirs" data-l="haier-yug.ru">На сайте нет ссылок на соцсети</td><td><span class="chip">Мы лучше</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">Пометка «новое» — то, что появилось или улучшилось сегодня. Скриншоты ниже можно открыть крупно — нажмите на любой. Зелёная рамка отмечает то, что работает на покупателя, оранжевая — то, что мешает.</p>
+</section>
+
+<section aria-labelledby="h-home">
+  <div class="sec-head">
+    <span class="eyebrow">1 · Главная</span>
+    <h2 id="h-home">Первое впечатление</h2>
+    <p class="lead">У нас первый экран живой: крутятся те же видео, что на официальном сайте Haier, поверх них надпись и кнопка, которая ведёт на нужный товар. Сразу под видео — четыре причины купить у нас.</p>
+  </div>
+  <div class="pair">
+    <figure>
+      <span class="who ours">Наш сайт</span>
+      <button class="shot" type="button" data-full="img/home-our.jpg"><img src="img/home-our.jpg" alt="Главная haier-kuban.ru на компьютере" loading="lazy" width="1200" height="750"><span class="mk" style="left:3.9%;top:15.1%;width:92.2%;height:49.3%"><b>Видео Haier с надписью и кнопкой</b></span></button>
+      <figcaption><ul><li>Видео меняются, как на haieronline.ru</li><li>Под ним: официальный партнёр, гарантия до 5 лет, доставка до 100 км, магазин в ТЦ</li></ul></figcaption>
+    </figure>
+    <figure>
+      <span class="who theirs">haier-yug.ru</span>
+      <button class="shot" type="button" data-full="img/home-yug.jpg"><img src="img/home-yug.jpg" alt="Главная haier-yug.ru на компьютере" loading="lazy" width="1200" height="750"><span class="mk bad below" style="left:0;top:91.4%;width:100%;height:8.6%"><b>Полоса висит на каждой странице</b></span></button>
+      <figcaption><ul><li>Статичная картинка серии X</li><li>Внизу всегда закреплена полоса «Дизайн интерьера», она перекрывает часть страницы</li></ul></figcaption>
+    </figure>
+  </div>
+  <div class="pair phones">
+    <figure>
+      <span class="who ours">Наш сайт · телефон</span>
+      <button class="shot" type="button" data-full="img/home-our-m.jpg"><img src="img/home-our-m.jpg" alt="Главная haier-kuban.ru на телефоне" loading="lazy" width="520" height="1125"><span class="mk" style="left:0;top:14.2%;width:100%;height:50.6%"><b>Видео во всю ширину</b></span></button>
+      <figcaption><ul><li>Внизу удобное меню, как в приложении</li></ul></figcaption>
+    </figure>
+    <figure>
+      <span class="who theirs">haier-yug.ru · телефон</span>
+      <button class="shot" type="button" data-full="img/home-yug-m.jpg"><img src="img/home-yug-m.jpg" alt="Главная haier-yug.ru на телефоне" loading="lazy" width="520" height="1125"><span class="mk bad below" style="left:0;top:84.4%;width:100%;height:15.6%"><b>Около 15% экрана занято</b></span></button>
+      <figcaption><ul><li>Полоса и две кнопки внизу забирают место у товаров</li></ul></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section aria-labelledby="h-speed">
+  <div class="sec-head">
+    <span class="eyebrow">2 · Скорость</span>
+    <h2 id="h-speed">Главное на экране — быстрее, чем у Хайер Юга</h2>
+    <p class="lead">Сегодня ускорили сайт: главные страницы теперь готовы заранее и отдаются мгновенно. Замеряли момент, когда покупатель видит главное — первый экран главной, карточки товаров в каталоге, фото и цену в карточке.</p>
+  </div>
+  <div class="bars num" role="img" aria-label="Когда видно главное, в секундах: главная — у нас 0,96, у Хайер Юга 1,98; каталог холодильников — 1,00 и 1,64; карточка X7 — 0,87 и 1,30">
+    <div class="scale" aria-hidden="true"><span></span><div><span>0 с</span><span>1 с</span><span>2 с</span></div></div>
+    <h3>Главная страница</h3>
+    <div class="bar-row"><span>Наш сайт</span><div class="bar ours" style="width:48%">0,96 с</div></div>
+    <div class="bar-row"><span>haier-yug.ru</span><div class="bar theirs" style="width:99%">1,98 с</div></div>
+    <h3>Каталог холодильников</h3>
+    <div class="bar-row"><span>Наш сайт</span><div class="bar ours" style="width:50%">1,00 с</div></div>
+    <div class="bar-row"><span>haier-yug.ru</span><div class="bar theirs" style="width:82%">1,64 с</div></div>
+    <h3>Карточка стиральной машины X7</h3>
+    <div class="bar-row"><span>Наш сайт</span><div class="bar ours" style="width:43.5%">0,87 с</div></div>
+    <div class="bar-row"><span>haier-yug.ru</span><div class="bar theirs" style="width:65%">1,30 с</div></div>
+  </div>
+  <p class="note num">Первое появление страницы: главная 0,82 с против 1,28 с, каталог 0,91 с против 1,03 с, карточка 0,76 с против 1,14 с. По 9 замеров каждой страницы с российского интернета, взято типичное значение.</p>
+</section>
+
+<section aria-labelledby="h-cat">
+  <div class="sec-head">
+    <span class="eyebrow">3 · Каталог</span>
+    <h2 id="h-cat">Раздел «Холодильники»</h2>
+    <p class="lead">У нас покупатель сразу видит фильтры и четыре модели с ценой, скидкой и кнопками «В корзину» и «Купить в 1 клик». У Хайер Юга на первом экране три больших фото, а цены начинаются ниже.</p>
+  </div>
+  <div class="pair">
+    <figure>
+      <span class="who ours">Наш сайт</span>
+      <button class="shot" type="button" data-full="img/cat-our.jpg"><img src="img/cat-our.jpg" alt="Каталог холодильников haier-kuban.ru" loading="lazy" width="1200" height="750"><span class="mk" style="left:3.6%;top:28.6%;width:20.6%;height:70.6%"><b>Фильтры на виду</b></span><span class="mk" style="left:26.6%;top:35.4%;width:69.6%;height:56%"><b>4 модели с ценой сразу</b></span></button>
+      <figcaption><ul><li>Метки «Хит», «Новинка», процент скидки, старая цена зачёркнута</li><li>Под каждой моделью — «В корзину» и «Купить в 1 клик»</li></ul></figcaption>
+    </figure>
+    <figure>
+      <span class="who theirs">haier-yug.ru</span>
+      <button class="shot" type="button" data-full="img/cat-yug.jpg"><img src="img/cat-yug.jpg" alt="Каталог холодильников haier-yug.ru" loading="lazy" width="1200" height="750"><span class="mk bad" style="left:2.8%;top:45.6%;width:94.6%;height:45.6%"><b>Цен на первом экране нет</b></span></button>
+      <figcaption><ul><li>Крупные фото по три в ряд</li><li>Фильтр спрятан за кнопкой «Выбрать по цене и характеристикам»</li></ul></figcaption>
+    </figure>
+  </div>
+  <div class="filters-pair">
+    <figure>
+      <span class="who ours">Наш сайт · фильтры холодильников</span>
+      <div class="filters-our" tabindex="0" aria-label="Фильтры холодильников на нашем сайте"><img src="img/filters-our.jpg" alt="Фильтры: цена, только в наличии, со скидкой, тип, высота, объём, класс энергоэффективности, тип компрессора" loading="lazy" width="290" height="1243"></div>
+    </figure>
+    <figure>
+      <span class="who theirs">haier-yug.ru · фильтр после нажатия кнопки</span>
+      <button class="shot" type="button" data-full="img/filter-yug.jpg"><img src="img/filter-yug.jpg" alt="Фильтр haier-yug.ru: цена, компрессор, энергоэффективность, габариты" loading="lazy" width="1200" height="233"></button>
+      <figcaption><ul><li>У нас каждый вариант — галочка, и рядом видно, сколько моделей подойдёт: например, инверторный компрессор — 57</li><li>У них выпадающие списки: что внутри, видно только после нажатия</li><li>Сегодня добавили «Тип компрессора» холодильникам и «Тип загрузки» стиральным машинам</li></ul></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section aria-labelledby="h-prod">
+  <div class="sec-head">
+    <span class="eyebrow">4 · Карточка товара</span>
+    <h2 id="h-prod">Стиральная машина Haier X7 HW90‑B14367U1</h2>
+    <p class="lead">Цена одинаковая — 66 500 ₽. Разница в том, как карточка ведёт к покупке: у нас выгода видна сразу, в процентах и рублях.</p>
+  </div>
+  <div class="pair">
+    <figure>
+      <span class="who ours">Наш сайт</span>
+      <button class="shot" type="button" data-full="img/prod-our.jpg"><img src="img/prod-our.jpg" alt="Карточка товара на haier-kuban.ru" loading="lazy" width="1200" height="750"><span class="mk" style="left:55%;top:52.6%;width:41.2%;height:33.2%"><b>−31% и «Выгода 30 499 ₽», две кнопки покупки</b></span></button>
+      <figcaption><ul><li>Главное о машине сразу под названием: 9 кг, инверторный мотор, узкий корпус 46,3 см, «Свежий воздух»</li><li>«В наличии», «Задать вопрос», доставка, гарантия, самовывоз, «Ответим за 15 минут»</li><li>8 фото с превью слева</li></ul></figcaption>
+    </figure>
+    <figure>
+      <span class="who theirs">haier-yug.ru</span>
+      <button class="shot" type="button" data-full="img/prod-yug.jpg"><img src="img/prod-yug.jpg" alt="Карточка товара на haier-yug.ru" loading="lazy" width="1200" height="750"><span class="mk bad right" style="left:51.6%;top:56.4%;width:19%;height:4.4%"><b>Наличие уточните</b></span></button>
+      <figcaption><ul><li>Цена и «Добавить в корзину», две кнопки «Позвонить»</li><li>Сумма выгоды не показана, купить в один клик нельзя</li><li>Длинная плашка о том, как посчитана цена</li></ul></figcaption>
+    </figure>
+  </div>
+  <div class="pair phones">
+    <figure>
+      <span class="who ours">Наш сайт · телефон</span>
+      <button class="shot" type="button" data-full="img/prod-our-m.jpg"><img src="img/prod-our-m.jpg" alt="Карточка товара haier-kuban.ru на телефоне" loading="lazy" width="520" height="1125"><span class="mk below" style="left:0;top:86.3%;width:100%;height:6.4%"><b>Цена и «В корзину» сразу</b></span></button>
+      <figcaption><ul><li>Покупатель видит цену, не листая</li></ul></figcaption>
+    </figure>
+    <figure>
+      <span class="who theirs">haier-yug.ru · телефон</span>
+      <button class="shot" type="button" data-full="img/prod-yug-m.jpg"><img src="img/prod-yug-m.jpg" alt="Карточка товара haier-yug.ru на телефоне" loading="lazy" width="520" height="1125"><span class="mk bad below" style="left:0;top:84.4%;width:100%;height:15.6%"><b>Цены на экране нет</b></span></button>
+      <figcaption><ul><li>Чтобы увидеть цену, нужно прокручивать</li></ul></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section aria-labelledby="h-specs">
+  <div class="sec-head">
+    <span class="eyebrow">5 · Характеристики</span>
+    <h2 id="h-specs">72 параметра против 4</h2>
+    <p class="lead">Характеристики — то, по чему покупатель сравнивает модели и решает. У нас они полные, как на официальном сайте Haier, и разложены по разделам: функции, размеры, программы, шум, отжим и так далее.</p>
+  </div>
+  <div class="bars num" role="img" aria-label="Число характеристик: стиральная машина X7 — у нас 72, у Хайер Юга 4; холодильник C4F640CWU1 — у нас 9, у Хайер Юга 4">
+    <h3>Стиральная машина X7 HW90‑B14367U1</h3>
+    <div class="bar-row"><span>Наш сайт</span><div class="bar ours" style="width:100%">72</div></div>
+    <div class="bar-row"><span>haier-yug.ru</span><div class="bar theirs" style="width:5.6%">4</div></div>
+    <h3>Холодильник C4F640CWU1</h3>
+    <div class="bar-row small"><span>Наш сайт</span><div class="bar ours" style="width:12.5%">9</div></div>
+    <div class="bar-row small"><span>haier-yug.ru</span><div class="bar theirs" style="width:5.6%">4</div></div>
+  </div>
+  <div class="pair">
+    <figure>
+      <span class="who ours">Наш сайт · начало списка, прокручивается</span>
+      <div class="specs-scroll" tabindex="0" aria-label="Характеристики на нашем сайте"><img src="img/specs-our.jpg" alt="Характеристики стиральной машины X7 на haier-kuban.ru: функции, общие спецификации, размеры, характеристики, программы" loading="lazy" width="760" height="2098"></div>
+      <figcaption class="note">На скриншоте 42 строки из 72. Дальше идут остальные программы, опции, оборудование и технические характеристики.</figcaption>
+    </figure>
+    <figure>
+      <span class="who theirs">haier-yug.ru · весь список</span>
+      <div class="specs-yug"><img src="img/specs-yug.jpg" alt="Характеристики стиральной машины X7 на haier-yug.ru: 4 строки" loading="lazy" width="1000" height="286"></div>
+      <figcaption><ul><li>Загрузка, мотор, узкий корпус, «Свежий воздух» — и всё</li><li>У холодильников приписка, что остальные параметры уточнит консультант. Покупатель, который сравнивает модели, уйдёт на другой сайт</li></ul></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section aria-labelledby="h-quiz">
+  <div class="sec-head">
+    <span class="eyebrow">6 · Помощь с выбором</span>
+    <h2 id="h-quiz">Подбор техники отвечает сразу</h2>
+    <p class="lead">У Хайер Юга подбор — это выбор категории и бюджета, после чего покупателя отправляют в каталог разбираться самому. У нас на каждом шаге видно, сколько моделей подходит, есть уточняющий вопрос, а в конце — три подходящие модели с ценами прямо в блоке.</p>
+  </div>
+  <div class="pair wide-left">
+    <figure>
+      <span class="who ours">Наш сайт · главная страница</span>
+      <div class="stack">
+        <button class="shot quiz-shot" type="button" data-full="img/quiz-our-budget.jpg"><picture><source media="(max-width: 600px)" srcset="img/quiz-our-budget-crop.jpg"><img src="img/quiz-our-budget.jpg" alt="Подбор на haier-kuban.ru: бюджет с числом моделей" loading="lazy" width="1100" height="260"></picture><span class="mk under" style="left:45.6%;top:33%;width:47%;height:34%"><b>Сколько моделей в каждом бюджете</b></span></button>
+        <button class="shot quiz-shot" type="button" data-full="img/quiz-our-result.jpg"><picture><source media="(max-width: 600px)" srcset="img/quiz-our-result-crop.jpg"><img src="img/quiz-our-result.jpg" alt="Подбор на haier-kuban.ru: три холодильника с ценами" loading="lazy" width="1100" height="408"></picture><span class="mk" style="left:45.6%;top:26.5%;width:49.3%;height:46%"><b>Модели с ценами сразу</b></span></button>
+      </div>
+      <figcaption><ul><li>Холодильник → до 80 000 ₽ → двухкамерный → 45 моделей, три лучшие сразу на экране</li><li>Кнопка «Все 45 моделей» открывает каталог с уже выставленными фильтрами</li><li>Или «Подборка от консультанта» — заявка уходит в Telegram с ответами покупателя</li></ul></figcaption>
+    </figure>
+    <figure>
+      <span class="who theirs">haier-yug.ru · «Помочь с выбором»</span>
+      <button class="shot" type="button" data-full="img/quiz-yug.jpg"><img src="img/quiz-yug.jpg" alt="Подбор на haier-yug.ru: категория и поле для бюджета" loading="lazy" width="460" height="468"></button>
+      <figcaption><ul><li>Список категорий и поле «Бюджет до»</li><li>Дальше — переход в каталог, где нужно уточнять характеристики самому</li></ul></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section aria-labelledby="h-lead">
+  <div class="sec-head">
+    <span class="eyebrow">7 · Заявка</span>
+    <h2 id="h-lead">Оставить заявку и дождаться звонка</h2>
+    <p class="lead">Чем короче форма, тем больше людей заполняют её до конца. У нас «Купить в 1 клик» просит три вещи и показывает сам товар с ценой. У Хайер Юга одна общая форма на пять полей.</p>
+  </div>
+  <div class="pair">
+    <figure>
+      <span class="who ours">Наш сайт · «Купить в 1 клик»</span>
+      <button class="shot" type="button" data-full="img/lead-our.jpg"><img src="img/lead-our.jpg" alt="Форма «Купить в 1 клик» на haier-kuban.ru" loading="lazy" width="1200" height="750"><span class="mk under" style="left:34.6%;top:39.4%;width:30.8%;height:28%"><b>Имя, телефон, магазин</b></span></button>
+      <figcaption><ul><li>В форме видно, что именно покупают и за сколько</li></ul></figcaption>
+    </figure>
+    <figure>
+      <span class="who theirs">haier-yug.ru · «Корзина и заявка»</span>
+      <button class="shot" type="button" data-full="img/lead-yug.jpg"><img src="img/lead-yug.jpg" alt="Форма «Корзина и заявка» на haier-yug.ru" loading="lazy" width="1200" height="750"><span class="mk bad under" style="left:50.4%;top:13.6%;width:34.2%;height:55.8%"><b>5 полей</b></span></button>
+      <figcaption><ul><li>Магазин, имя, телефон, адрес, комментарий</li></ul></figcaption>
+    </figure>
+  </div>
+  <div class="tg-pair">
+    <div class="tg">
+      <span class="who ours">Наш сайт · заявка в Telegram за секунду</span>
+      <h3>Пример сообщения в группе магазина (имя и телефон вымышленные)</h3>
+      <div class="bubble num">
+        <span class="from">Бот сайта</span>
+        <b>⚡ Купить в 1 клик · Краснодар</b>
+        <span>Ольга — <span class="tel">+7 (900) 000-00-00</span></span>
+        <span>Товар: Стиральная машина Haier X7 HW90‑B14367U1 — 66 500 ₽</span>
+        <span>Пришёл с: yandex.ru</span>
+      </div>
+      <div class="btns"><span>✋ Взять в работу</span><span>✅ Готово</span><span class="wide">Открыть в админке</span></div>
+      <p class="note">Менеджер нажимает «Взять в работу» — в группе видно, кто взял и во сколько. Заявка хранится в админке со статусом «новая / в работе / выполнена», и её не потерять.</p>
+      <div class="btns"><span class="wide taken">✋ Ирина · 14:32</span></div>
+    </div>
+    <div class="tg">
+      <span class="who theirs">haier-yug.ru</span>
+      <h3>Заявка уходит на электронную почту</h3>
+      <div class="mail"><b>Письмо с заявкой</b><span>Его нужно увидеть в почте, а кто перезвонил и когда — со стороны не видно.</span></div>
+      <p class="note">Мы же в Метрике видим ещё и тех, кто не оставил заявку, а нажал «Позвонить» или написал в мессенджер. Так руководитель видит, сколько обращений принёс сайт.</p>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="h-vk">
+  <div class="sec-head">
+    <span class="eyebrow">8 · ВКонтакте</span>
+    <h2 id="h-vk">Своё сообщество и кнопка на сайте</h2>
+    <p class="lead">У магазинов появилось сообщество ВКонтакте: обложка с магазином, адреса и телефоны Краснодара и Армавира, часы работы и ссылка на сайт. Там выходят новинки, акции и короткие видеообзоры техники. На сайте внизу каждой страницы — кнопка «Мы ВКонтакте».</p>
+  </div>
+  <div class="pair wide-left">
+    <figure>
+      <span class="who ours">Сообщество «Фирменные магазины Haier — Краснодар и Армавир»</span>
+      <button class="shot" type="button" data-full="img/vk-group.jpg"><img src="img/vk-group.jpg" alt="Сообщество ВКонтакте фирменных магазинов Haier в Краснодаре и Армавире" loading="lazy" width="1100" height="679"></button>
+      <figcaption class="note">Адрес сообщества: vk.com/haier_kuban</figcaption>
+    </figure>
+    <div class="stack">
+      <figure>
+        <span class="who ours">Наш сайт · низ каждой страницы</span>
+        <button class="shot" type="button" data-full="img/footer-our.jpg"><img src="img/footer-our.jpg" alt="Подвал haier-kuban.ru с кнопкой «Мы ВКонтакте»" loading="lazy" width="1200" height="478"><span class="mk under" style="left:3.4%;top:38.6%;width:12.2%;height:9.8%"><b>Мы ВКонтакте</b></span></button>
+      </figure>
+      <div class="vk-none">
+        <span class="who theirs">haier-yug.ru</span>
+        <b>Ссылок на соцсети нет</b>
+        <span>На сайте Хайер Юга не нашли ни ВКонтакте, ни Telegram, ни других соцсетей.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="h-done">
+  <div class="sec-head">
+    <span class="eyebrow">Что улучшили сегодня</span>
+    <h2 id="h-done">Сайт развивается каждый день</h2>
+  </div>
+  <ul class="done">
+    <li><b>Скорость</b><span>Каталог и карточки товаров готовы заранее. Главное на экране примерно за секунду — быстрее, чем у Хайер Юга.</span></li>
+    <li><b>Подбор техники</b><span>Число моделей в каждом бюджете, уточняющий вопрос и три модели с ценами прямо в блоке.</span></li>
+    <li><b>Выгода в рублях</b><span>В карточке рядом со скидкой написано, сколько покупатель экономит.</span></li>
+    <li><b>Фильтры</b><span>Тип компрессора у холодильников, тип загрузки у стиральных машин. Починили фильтры по типу и высоте.</span></li>
+    <li><b>ВКонтакте</b><span>Сообщество магазинов и кнопка «Мы ВКонтакте» на сайте.</span></li>
+  </ul>
+</section>
+
+<footer>
+  <p><b>Как сравнивали.</b> 16 ноября 2026, одни и те же страницы на обоих сайтах, экран компьютера 1440 px и телефона размера iPhone, с российского интернета. Скорость — по 9 заходов на главную, каталог и карточку товара на каждом сайте, взято типичное значение. Ассортимент не сравнивали: наш каталог ещё наполняется.</p>
+</footer>
+
+</div>
+
+<dialog id="lb" aria-label="Скриншот крупно">
+  <div class="inner"><img alt=""></div>
+  <button type="button">Закрыть</button>
+  <span class="lb-hint">Листайте картинку пальцем · нажмите, чтобы закрыть</span>
+</dialog>
+
+<script>
+(function () {
+  var lb = document.getElementById('lb');
+  var img = lb.querySelector('img');
+  document.querySelectorAll('.shot').forEach(function (b) {
+    b.addEventListener('click', function () {
+      img.style.width = '';
+      img.onload = function () {
+        if (window.innerWidth < 600) img.style.width = Math.max(window.innerWidth - 32, Math.min(img.naturalWidth, window.innerWidth * 3)) + 'px';
+      };
+      img.src = b.dataset.full;
+      img.alt = b.querySelector('img').alt;
+      if (lb.showModal) lb.showModal(); else lb.setAttribute('open', '');
+    });
+  });
+  lb.addEventListener('click', function () { lb.close ? lb.close() : lb.removeAttribute('open'); });
+})();
+</script>
+</body>
+</html>
